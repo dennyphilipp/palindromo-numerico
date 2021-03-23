@@ -7,12 +7,17 @@ namespace Palindromo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Input max value numeric...");
+            Console.WriteLine("Input minimum value numeric...");
             string value = Console.ReadLine();
-            int.TryParse(value, out int numeric);
-            for (int i = 0; i <= numeric; i++)
+            int.TryParse(value, out int minimumNumeric);
+
+            Console.WriteLine("Input max value numeric...");
+            value = Console.ReadLine();
+            int.TryParse(value, out int maxNumeric);
+
+            for (int i = minimumNumeric; i <= maxNumeric; i++)
             {
-                for (int j = 0; j <= numeric; j++)
+                for (int j = minimumNumeric; j <= maxNumeric; j++)
                 {
                     string multiplier = (i * j).ToString();
                     var reverse = multiplier.Reverse().ToArray();
@@ -22,6 +27,7 @@ namespace Palindromo
                         Console.WriteLine($"Palindromo {i} * {j} = {multiplier}");
                 }
             }
+            Console.WriteLine();
         }
     }
 }
